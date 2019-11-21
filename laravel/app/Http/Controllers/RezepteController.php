@@ -14,7 +14,7 @@ class RezepteController extends Controller
      */
     public function index()
     {
-        //
+        return view('Rezepte.index');
     }
 
     /**
@@ -35,7 +35,7 @@ class RezepteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "test";
     }
 
     /**
