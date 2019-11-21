@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Rezepte;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RezepteController extends Controller
 {
@@ -35,7 +36,15 @@ class RezepteController extends Controller
      */
     public function store(Request $request)
     {
-        return "test";
+        $data= $request->validate([
+            'gericht'=>'required',
+            'zutaten'=>'required',
+            'zubereitung'=>'required'
+
+        ]);
+        $data['user_id']= Auth::user()->id;
+        Rezepte::create($data);
+        return redirect(route('rezepte.index'));
     }
 
     /**
