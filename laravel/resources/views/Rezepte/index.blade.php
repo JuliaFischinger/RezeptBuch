@@ -16,7 +16,7 @@
     <div class="card-body">
         <form action="{{route('rezepte.store')}}" method="post">
             @csrf
-
+            <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
              <div class="form-group">
                 <label for="gericht">Gericht</label>
                 <input type="string" class="form-control" id="gericht" name="gericht">

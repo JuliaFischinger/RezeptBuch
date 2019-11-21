@@ -83,6 +83,7 @@
                     @endauth
 
                     <div class="col">
+                        @include('Partials.message')
                         @yield('content')
                     </div>
                 </div>

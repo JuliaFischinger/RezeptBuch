@@ -39,11 +39,13 @@ class RezepteController extends Controller
         $data= $request->validate([
             'gericht'=>'required',
             'zutaten'=>'required',
-            'zubereitung'=>'required'
+            'zubereitung'=>'required',
+            'user_id'=>'required|exists:users,id'
 
         ]);
         $data['user_id']= Auth::user()->id;
         Rezepte::create($data);
+        $request->session()->flash('message','Rezept hinzugefügt.');
         return redirect(route('rezepte.index'));
     }
 
