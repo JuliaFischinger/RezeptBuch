@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BackendController extends Controller
 {
@@ -13,6 +14,7 @@ class BackendController extends Controller
      */
     public function __construct()
     {
+        $this->middleware('checkRole:admin,editor');
         $this->middleware('auth');
     }
 
@@ -23,6 +25,11 @@ class BackendController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('backend.index');
     }
+
+    /*public function settings()
+    {
+        return view('backend.index')
+    }*/
 }
