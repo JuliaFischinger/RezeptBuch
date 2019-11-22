@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Rezepte;
+use App\RezeptComment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class RezepteController extends Controller
+class RezeptCommentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Rezepte $rezeptes)
+    public function index()
     {
-        return view('Rezepte.index', compact('rezeptes'));
+        //
     }
 
     /**
@@ -25,7 +24,7 @@ class RezepteController extends Controller
      */
     public function create()
     {
-        return view('Rezepte.create');
+        //
     }
 
     /**
@@ -36,26 +35,16 @@ class RezepteController extends Controller
      */
     public function store(Request $request)
     {
-        $data= $request->validate([
-            'gericht'=>'required',
-            'zutaten'=>'required',
-            'zubereitung'=>'required',
-            'user_id'=>'required|exists:users,id'
-
-        ]);
-        $data['user_id']= Auth::user()->id;
-        Rezepte::create($data);
-        $request->session()->flash('message','Rezept hinzugefügt.');
-        return redirect(route('rezepte.index'));
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Rezepte  $rezepte
+     * @param  \App\RezeptComment  $rezeptComment
      * @return \Illuminate\Http\Response
      */
-    public function show(Rezepte $rezepte)
+    public function show(RezeptComment $rezeptComment)
     {
         //
     }
@@ -63,10 +52,10 @@ class RezepteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Rezepte  $rezepte
+     * @param  \App\RezeptComment  $rezeptComment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rezepte $rezepte)
+    public function edit(RezeptComment $rezeptComment)
     {
         //
     }
@@ -75,10 +64,10 @@ class RezepteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Rezepte  $rezepte
+     * @param  \App\RezeptComment  $rezeptComment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rezepte $rezepte)
+    public function update(Request $request, RezeptComment $rezeptComment)
     {
         //
     }
@@ -86,10 +75,10 @@ class RezepteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Rezepte  $rezepte
+     * @param  \App\RezeptComment  $rezeptComment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rezepte $rezepte)
+    public function destroy(RezeptComment $rezeptComment)
     {
         //
     }

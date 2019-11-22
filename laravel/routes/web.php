@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-})->name('home');
+Route::get('/', 'FrontendController@index')->name('home');
+Route::get('/show/{rezept}', 'FrontendController@show')->name('frontend.show');
+Route::get('/check', 'FrontendController@check')->name('frontend.check');
 
 Auth::routes();
 

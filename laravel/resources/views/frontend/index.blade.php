@@ -1,21 +1,13 @@
 @extends('layouts.frontend')
 @section('content')
 
-    @for($i=0;$i<20;$i++)
+    @foreach($rezeptes->all() as $rezepte)
 <div class="card mb-2">
-    <div class="card-header">Rezepte</div>
+    <div class="card-header"><a href="{{route('frontend.show',$rezepte->id)}}"><h1>{{$rezepte->gericht}}</h1></a></div>
     <div class="card-body">
-        <div> Hier findest du alle deine Lieblingsrezepte.
-        </div>
-        <div> Hier findest du alle deine Lieblingsrezepte.
-        </div>
-        <div> Hier findest du alle deine Lieblingsrezepte.
-        </div>
-        <div> Hier findest du alle deine Lieblingsrezepte.
-        </div>
-        <div> Hier findest du alle deine Lieblingsrezepte.
-        </div>
+       <h5>Zutaten: </h5>{{$rezepte->zutaten}}<br> <br>
+       <h5>Zubereitung: </h5>{{$rezepte->zubereitung}}
     </div>
 </div>
-    @endfor
+    @endforeach
 @endsection
