@@ -58,7 +58,7 @@ strong,p{color: black;}
                                 </li>
                             @endif
                         @else
-                        <a class="nav-link" href="{{ route('home') }}">Startseite</a>
+                        <a class="nav-link" href="{{ route('frontend.index') }}">Startseite</a>
                     
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

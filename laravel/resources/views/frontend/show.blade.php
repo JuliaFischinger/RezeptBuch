@@ -1,6 +1,10 @@
 @extends('layouts.frontend')
 @section('content')
 
+<div class="pull-right">
+                <a class="btn btn-light mb-4" href="{{ route('frontend.index') }}"> zurück</a>
+            </div>
+
 <div class="card mb-2">
     <div class="card-header"><h1>{{$rezept->gericht}}</h1></div>
     <div class="card-body">

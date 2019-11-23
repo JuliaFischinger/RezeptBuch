@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    Melde dich an, um hier die besten Rezepte sehen zu können.
+                    Du hast dich erfolgreich eingelogt.
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
     <div class="row">
         <div class="col mt-2">
     <div class="pull-right">
-                <a class="btn btn-success mb-4" href="{{route('login')}}"> Anmelden</a>
+                <a class="btn btn-success mb-4" href="{{ route('frontend.index') }}"> Zur Rezeptübersicht.</a>
             </div>  
         </div>
     </div>
