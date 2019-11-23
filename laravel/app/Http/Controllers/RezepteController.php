@@ -68,7 +68,7 @@ class RezepteController extends Controller
      */
     public function edit(Rezepte $rezepte)
     {
-        return 'edit';
+        return view('Rezepte.edit', compact('rezepte'));
     }
 
     /**
@@ -78,9 +78,17 @@ class RezepteController extends Controller
      * @param  \App\Rezepte  $rezepte
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rezepte $rezepte)
+    public function update(Rezepte $rezepte)
     {
-        //
+        $data = $this->validate(request(),[
+            'gericht'=>'required',
+            'zutaten'=>'required',
+            'zubereitung'=>'required',
+        ]);
+
+        $rezepte->update(request()->except('_token'));
+        session()->flash('message', 'Rezept erfolgreich bearbeitet.');
+        return redirect(route('rezepte.index'));
     }
 
     /**
