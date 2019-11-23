@@ -39,7 +39,7 @@
                         <div class="btn-group btn-group-sm">
                             <a href="{{route('rezepte.edit', $rezepte->id)}}" class="btn btn-sm btn-outline-secondary"><i class="fas fa-fw fa-pencil-alt"></i></a>
                             <a href="{{route('frontend.show', $rezepte->id)}}" class="btn btn-sm btn-outline-secondary"><i class="fas fa-fw fa-file-alt"></i></a>
-                            <a href="#" class="btn btn-sm btn-outline-secondary"><i class="fas fa-fw fa-trash-alt"></i></a>
+                            <a href="{{route('rezepte.delete', $rezepte->id)}}" class="btn btn-sm btn-outline-secondary"><i class="fas fa-fw fa-trash-alt"></i></a>
                         </div>
                     </td>
                 </tr>

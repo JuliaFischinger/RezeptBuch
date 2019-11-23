@@ -26,4 +26,5 @@ Route::resources([
     'comment'=>'RezeptCommentController'
 ]);
 
+Route::get('/delete/{rezepte}', 'RezepteController@delete')->name('rezepte.delete');
 

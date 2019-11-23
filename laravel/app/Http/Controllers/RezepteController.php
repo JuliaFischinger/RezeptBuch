@@ -87,8 +87,13 @@ class RezepteController extends Controller
         ]);
 
         $rezepte->update(request()->except('_token'));
-        session()->flash('message', 'Rezept erfolgreich bearbeitet.');
+        Session()->flash('message', 'Rezept erfolgreich bearbeitet.');
         return redirect(route('rezepte.index'));
+    }
+
+    public function delete(Rezepte $rezepte)
+    {
+        return view('rezepte.delete', compact('rezepte'));
     }
 
     /**
@@ -99,6 +104,8 @@ class RezepteController extends Controller
      */
     public function destroy(Rezepte $rezepte)
     {
-        //
+        $rezepte->delete();
+        Session()->flash('message', 'Rezept wurde gelöscht.');
+        return redirect(route('rezepte.index'));
     }
 }
