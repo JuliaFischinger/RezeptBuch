@@ -22,8 +22,7 @@ Route::get('/backend', 'BackendController@index')->name('backend.index');
 Auth::routes();
 
 Route::resources([
-    'rezepte'=>'RezepteController',
-    'comment'=>'RezeptCommentController'
+    'rezepte'=>'RezepteController'
 ]);
 
 Route::get('/delete/{rezepte}', 'RezepteController@delete')->name('rezepte.delete');
