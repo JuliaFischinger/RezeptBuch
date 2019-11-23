@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRezeptCommentsTable extends Migration
+class AddRezeptCommentsRezeptId extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateRezeptCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rezept_comments', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedInteger('user_id');
-            $table->text('comment');
-            $table->timestamps();
+        Schema::table('rezept_comments', function (Blueprint $table) {
+            $table->integer('rezept_id')->after('user_id');            
         });
     }
 
@@ -28,6 +25,9 @@ class CreateRezeptCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rezept_comments');
+        Schema::table('rezept_comments', function (Blueprint $table)
+        {
+        $table->dropColumn(['rezept_id']);
+        });
     }
 }

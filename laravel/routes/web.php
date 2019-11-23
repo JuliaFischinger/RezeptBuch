@@ -22,7 +22,8 @@ Route::get('/backend', 'BackendController@index')->name('backend.index');
 Auth::routes();
 
 Route::resources([
-    'rezepte'=>'RezepteController'
+    'rezepte'=>'RezepteController',
+    'comment'=>'RezeptCommentController'
 ]);
 
 

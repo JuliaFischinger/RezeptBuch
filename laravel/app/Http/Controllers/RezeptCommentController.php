@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\RezeptComment;
+use App\RezeptComment AS Comment;
 use Illuminate\Http\Request;
 
 class RezeptCommentController extends Controller
@@ -35,7 +35,16 @@ class RezeptCommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data= $request->validate([
+            'comment'=>'required',
+            'rezept_id'=>'required |exists:rezeptes,id',
+            'user_id'=>'required|exists:users,id'
+            
+        ]);
+        
+        Comment::create($data);
+        $request->session()->flash('message','Kommentar hinzugefügt.');
+        return redirect(route('frontend.show', $data['rezept_id']));
     }
 
     /**
