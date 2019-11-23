@@ -21,7 +21,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
-<body>
+<style>
+table{background-color: #fff;color: black;}
+table strong{color: black;}
+h2,h1{color: black;}
+strong,p{color: black;}
+</style>
+<body style="background-image: url('https://cdn.pixabay.com/photo/2017/06/01/18/46/cook-2364221_1280.jpg">
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
